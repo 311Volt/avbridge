@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="avbridge" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/avbridge" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="lib/libfftw3f-3.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/avbridge" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="unbrkn.wav" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-ftree-vectorize -mfpmath=sse -msse2 -ffast-math" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="lib/libfftw3f-3.a" />
+				</Linker>
+			</Target>
+			<Target title="Assembly O3">
+				<Option output="bin/avbridge" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj/AssemblyO3/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-S -masm=intel -mfpmath=sse -msse2 -ftree-vectorize -ffast-math" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++11" />
+			<Add option="-m32" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++" />
+			<Add option="-static-libgcc" />
+			<Add option="-static" />
+			<Add option="-m32" />
+		</Linker>
+		<Unit filename="src/argparser.cpp" />
+		<Unit filename="src/argparser.hpp" />
+		<Unit filename="src/compander.cpp" />
+		<Unit filename="src/compander.hpp" />
+		<Unit filename="src/converter.cpp" />
+		<Unit filename="src/converter.hpp" />
+		<Unit filename="src/fftw3/fftw3.h" />
+		<Unit filename="src/fileio.cpp" />
+		<Unit filename="src/fileio.hpp" />
+		<Unit filename="src/incl/c.hpp" />
+		<Unit filename="src/incl/c_cpp.hpp" />
+		<Unit filename="src/incl/cpp.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/windowing.cpp" />
+		<Unit filename="src/windowing.hpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
