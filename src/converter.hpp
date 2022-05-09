@@ -2,7 +2,7 @@
 #define AVB_CONVERTER_H
 
 #include "incl/c_cpp.hpp"
-#include "fftw3/fftw3.h"
+#include "fftw3.h"
 #include "compander.hpp"
 #include "windowing.hpp"
 #include "fileio.hpp"

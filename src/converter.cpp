@@ -113,7 +113,7 @@ void avb::ForwardConverterThread::Process()
 
 void avb::ForwardConverterThread::ProcessAsync()
 {
-    stlThread = std::thread(Process, this);
+    stlThread = std::thread(&ForwardConverterThread::Process, this);
 }
 void avb::ForwardConverterThread::WaitForCompletion()
 {
@@ -535,7 +535,7 @@ bool avb::BackwardConverter::Convert(const char* name)
     while(samplesToWrite)
     {
         std::vector<float> nul(262144,0);
-        uint32_t writeSize = std::min(samplesToWrite*numCh*sizeof(float), 262144U);
+        uint32_t writeSize = std::min(samplesToWrite*numCh*sizeof(float), 262144UL);
         fwrite(&nul[0],writeSize,1,outFile);
         samplesToWrite -= writeSize;
     }
